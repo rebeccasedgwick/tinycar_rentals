@@ -53,10 +53,12 @@ class Booking(models.Model):
     start_time = models.DateTimeField()
     end_time = models.DateTimeField()
     release_time = models.DateTimeField()
+    duration_hrs = models.IntegerField('Duration', default=1, help_text="Rental duration in hours")
 
     def __str__(self):
             return f'{self.model}: {self.start_time} - {self.end_time}'
 
     def save(self, *args, **kwargs):
+        self.end_time = self.start_time + timedelta(hours=self.duration_hrs)
         self.release_time = self.end_time + timedelta(hours=2)
         super(Booking, self).save(*args, **kwargs)

@@ -1,5 +1,6 @@
 from django.contrib import admin
 from rentals.models import CarMake, CarModel, Car, Booking
+from rentals.forms import BookingForm
 
 admin.site.register(CarMake)
 
@@ -16,5 +17,5 @@ class CarAdmin(admin.ModelAdmin):
 
 @admin.register(Booking)
 class BookingAdmin(admin.ModelAdmin):
-    fields = ('model', 'start_time', 'end_time')
     list_display = ('model', 'start_time', 'end_time', 'release_time')
+    form = BookingForm
