@@ -1,4 +1,5 @@
 from django.db import models
+from datetime import timedelta
 
 
 class CarMake(models.Model):
@@ -55,3 +56,7 @@ class Booking(models.Model):
 
     def __str__(self):
             return f'{self.model}: {self.start_time} - {self.end_time}'
+
+    def save(self, *args, **kwargs):
+        self.release_time = self.end_time + timedelta(hours=2)
+        super(Booking, self).save(*args, **kwargs)

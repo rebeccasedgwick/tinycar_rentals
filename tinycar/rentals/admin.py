@@ -16,4 +16,5 @@ class CarAdmin(admin.ModelAdmin):
 
 @admin.register(Booking)
 class BookingAdmin(admin.ModelAdmin):
+    fields = ('model', 'start_time', 'end_time')
     list_display = ('model', 'start_time', 'end_time', 'release_time')
