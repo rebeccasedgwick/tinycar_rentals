@@ -1,5 +1,5 @@
 from django.contrib import admin
-from rentals.models import CarMake, CarModel, Car
+from rentals.models import CarMake, CarModel, Car, Booking
 
 admin.site.register(CarMake)
 
@@ -12,3 +12,8 @@ class CarModelAdmin(admin.ModelAdmin):
 @admin.register(Car)
 class CarAdmin(admin.ModelAdmin):
     list_display = ('model', 'registration', 'vin')
+
+
+@admin.register(Booking)
+class BookingAdmin(admin.ModelAdmin):
+    list_display = ('model', 'start_time', 'end_time', 'release_time')
