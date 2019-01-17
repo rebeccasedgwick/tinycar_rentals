@@ -7,6 +7,9 @@ class CarMake(models.Model):
     """
     name = models.CharField('Car make', blank=False)
 
+    def __str__(self):
+        return self.name
+
 
 class CarModel(models.Model):
     """
@@ -14,6 +17,9 @@ class CarModel(models.Model):
     """
     name = models.CharField('Car model', blank=False)
     make = models.ForeignKey('CarMake', blank=False)
+
+    def __str__(self):
+        return self.name
 
 
 class Car(models.Model):
@@ -33,3 +39,6 @@ class Car(models.Model):
         max_length=17,
         help_text="Vehicle identification number"
     )
+
+    def __str__(self):
+        return self.name
