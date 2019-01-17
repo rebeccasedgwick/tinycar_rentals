@@ -42,3 +42,16 @@ class Car(models.Model):
 
     def __str__(self):
         return f'{self.model.name}: {self.registration}'
+
+
+class Booking(models.Model):
+    """
+    Model representing a booking made for a car
+    """
+    model = models.ForeignKey('Car', blank=False, on_delete=models.CASCADE)
+    start_time = models.DateTimeField()
+    end_time = models.DateTimeField()
+    release_time = models.DateTimeField()
+
+    def __str__(self):
+            return f'{self.model}: {self.start_time} - {self.end_time}'
