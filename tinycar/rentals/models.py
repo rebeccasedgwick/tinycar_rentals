@@ -41,4 +41,4 @@ class Car(models.Model):
     )
 
     def __str__(self):
-        return self.vin
+        return f'{self.model.name}: {self.registration}'
