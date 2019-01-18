@@ -17,5 +17,5 @@ class CarAdmin(admin.ModelAdmin):
 
 @admin.register(Booking)
 class BookingAdmin(admin.ModelAdmin):
-    list_display = ('model', 'start_time', 'end_time', 'release_time')
+    list_display = ('id', 'car', 'start_time', 'end_time', 'release_time')
     form = BookingForm
